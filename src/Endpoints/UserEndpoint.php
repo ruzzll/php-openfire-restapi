@@ -222,7 +222,8 @@ class UserEndpoint extends Dispatcher
      */
     public function createUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = SubscriptionType::BOTH, $groups)
     {
-        $payload = new Payloads\RosterItemPayload(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        // $payload = new Payloads\RosterItemPayload(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        $payload = new Payloads\RosterItemPayload(compact('jid', 'nickname', 'subscriptionType'));
         $endpoint = self::$endpoint . '/' . $username . '/roster';
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
